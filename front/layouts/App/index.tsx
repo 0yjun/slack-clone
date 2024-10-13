@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "@pages/Login"; // 애플리케이션의 메인 컴포넌트
-import SignUp from "@pages/SignUp"; // 애플리케이션의 메인 컴포넌트
+import loadable from "@loadable/component";
+const Login = loadable(() => import("@pages/Login"));
+const SignUp = loadable(() => import("@pages/SignUp"));
 
 const App = () => {
   return (
