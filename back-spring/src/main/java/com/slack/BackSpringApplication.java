@@ -1,11 +1,8 @@
 package com.slack;
 
-import com.slack.domain.sample.model.reqest.SampleResponse;
 import com.slack.domain.sample.repository.SampleRepository;
 import com.slack.domain.sample.repository.entry.Sample;
-import com.slack.domain.sample.service.SampleService;
 import jakarta.annotation.PostConstruct;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
