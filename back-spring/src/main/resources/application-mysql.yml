@@ -4,9 +4,9 @@ spring:
       activate:
         on-profile: mysql
   datasource:
-    url: jdbc:mysql://localhost:3306/Spring_Chat
-    username: spring_chat
-    password: 12345678!
+    url: jdbc:mysql://localhost:3306/Spring_Slack
+    username: spring_slack
+    password: spring_slack
     driver-class-name: com.mysql.jdbc.Driver
   jpa:
     hibernate:
