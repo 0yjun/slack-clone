@@ -10,6 +10,7 @@ const App = () => {
       {/* BrowserRouter로 감싸줍니다. */}
       <Routes>
         <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>
     </Router>

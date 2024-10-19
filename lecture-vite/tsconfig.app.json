@@ -23,14 +23,15 @@
     /* 경로 설정 */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["/*"],
+      "@": ["/*"],
       "@hooks": ["hooks/*"],
       "@components": ["components/*"],
       "@layouts": ["layouts/*"],
       "@pages": ["pages/*"],
       "@utils": ["utils/*"],
       "@typings": ["typings/*"]
-    }
+    },
+    "types": ["vite/client"]
   },
   "ts-node": {
     "compilerOptions": {
@@ -39,6 +40,9 @@
       "target": "es5",
       "esModuleInterop": true
     }
-  }
+  },
+  "include": ["./**/*.ts", "./**/*.tsx", "./**/*.js", "./**/*.jsx"],
+  "exclude": ["node_modules"]
+
   //"include": ["vite.config.ts"]
 }
