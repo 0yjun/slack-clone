@@ -16,15 +16,15 @@ export default defineConfig({
         find: "@layouts",
         replacement: path.resolve(__dirname, "layouts"),
       },
-      {
-        find: "@components",
-        replacement: path.resolve(__dirname, "components"),
-      },
       { find: "@pages", replacement: path.resolve(__dirname, "pages") },
       { find: "@utils", replacement: path.resolve(__dirname, "utils") },
       {
         find: "@typings",
         replacement: path.resolve(__dirname, "typings"),
+      },
+      {
+        find: "@component",
+        replacement: path.resolve(__dirname, "component"),
       },
     ],
   },
