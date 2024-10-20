@@ -1,5 +1,7 @@
 package com.slack.domain.auth.service;
 
+import com.slack.common.error.CustomException;
+import com.slack.common.error.ErrorCode;
 import com.slack.domain.auth.model.request.LoginRequest;
 import com.slack.domain.auth.model.request.SignUpRequest;
 import com.slack.domain.auth.model.response.LoginResponse;
@@ -24,30 +26,23 @@ public class AuthService {
 
     @Transactional
     public SignUpResponse register(SignUpRequest request){
-        User user  = newUser(request.nickname());
-        UserCredential userCredential = newUserCredential(request.password(),user);
+        User user  = User.builder()
+                .nickname(request.nickname())
+                .email(request.email())
+                .build();
+        UserCredential userCredential = UserCredential.builder()
+                .user(user)
+                .password(passwordEncoder.encode(request.password()))
+                .build();
         user.setUserCredential(userCredential);
         try {
-            User newUser =  userRepository.save(user);
+            userRepository.save(user);
         }catch (Exception e){
-            e.printStackTrace();
-            throw new IllegalArgumentException("회원가입 실패");
+            throw new CustomException(ErrorCode.SIGNUP_ERROR);
         }
 
         String token = JWTUtil.createToken(request.nickname());
         return new SignUpResponse(token);
     }
 
-    public User newUser(String name){
-        return User.builder()
-                .nickname(name)
-                .build();
-    }
-
-    public UserCredential newUserCredential(String password,User user){
-        return UserCredential.builder()
-                .user(user)
-                .password(passwordEncoder.encode(password))
-                .build();
-    }
 }

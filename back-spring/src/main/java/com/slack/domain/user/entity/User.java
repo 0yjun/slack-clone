@@ -3,19 +3,22 @@ package com.slack.domain.user.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
+@Getter
 @Table(name="users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true) // 닉네임 중복 방지
     private String nickname;
+
+    @Column(nullable = false, unique = true) // 이메일 중복 방지
+    private String email;
 
     @Column(nullable = false)
     private boolean enabled;
@@ -23,9 +26,7 @@ public class User {
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private UserCredential userCredential;
 
-    //private String password = this.userCredential.getPassword();
-
     public void setUserCredential(UserCredential userCredential){
-        this.userCredential =userCredential;
+        this.userCredential = userCredential;
     }
 }
