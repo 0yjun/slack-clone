@@ -21,7 +21,7 @@ const SignUp = () => {
   const [signUpError, setSignUpError] = useState(false);
   const [signUpSuccess, setSignUpSuccess] = useState(false);
   const { response, isError, error, performRequest } = useCRUD(
-    "api/auth/signup",
+    "/api/auth/signup",
     "POST",
     {
       data: { email, nickname, password },
@@ -65,6 +65,7 @@ const SignUp = () => {
         setSignUpError(true);
       } else {
         alert("성공");
+        console.log(response, isError, error);
         setSignUpSuccess(true);
         setSignUpError(false);
       }

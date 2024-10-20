@@ -4,7 +4,7 @@ spring:
       activate:
         on-profile: mysql
   datasource:
-    url: jdbc:mysql://localhost:3306/Spring_Slack
+    url: jdbc:mysql://localhost:3306/spring_slack
     username: spring_slack
     password: spring_slack
     driver-class-name: com.mysql.jdbc.Driver
@@ -29,8 +29,3 @@ decorator:
   datasource:
     p6spy:
       enable-logging: true
-token:
-  secret-key: "SECRET"
-  refresh-secret-key: "REFRESH_SECRET"
-  token-time: 300
-  refresh-token-time: 300

@@ -82,6 +82,7 @@ const useCRUD = (
         }
       }
     } catch (err) {
+      console.log(err);
       setIsError(true);
       setErrorState(err as AxiosError);
     }
