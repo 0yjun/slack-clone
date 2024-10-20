@@ -7,7 +7,7 @@
     "skipLibCheck": true,
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
+    "moduleResolution": "Bundler",
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "moduleDetection": "force",
@@ -18,7 +18,19 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    /* 경로 설정 */
+    "baseUrl": ".",
+    "paths": {
+      "@": ["src/*"],
+      "@hooks": ["src/hooks/*"],
+      "@layouts": ["src/layouts/*"],
+      "@pages": ["src/pages/*"],
+      "@utils": ["src/utils/*"],
+      "@typings": ["src/typings/*"],
+      "@component": ["src/component/*"]
+    },
+    "allowSyntheticDefaultImports": true
   },
-  "include": ["src"]
+  "include": ["src", "**/*.ts", "**/*.tsx"]
 }
